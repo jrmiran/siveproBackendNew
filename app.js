@@ -17,6 +17,7 @@ require('./app/routes/query')(app, "/clientsArquiteto",
 require('./app/routes/queryClients')(app,"clientEmpresa");
 require('./app/routes/queryVendors')(app,"vendor");
 require('./app/routes/queryBudgets')(app,"budgetVendor");
+require('./app/routes/queryClientBudget')(app,"budgetClient");
 
 app.listen(porta);
 /*app.listen(3000, function(){
