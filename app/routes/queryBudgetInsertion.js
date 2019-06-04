@@ -14,6 +14,8 @@ module.exports = function(app, budgetInsertion){
         
         codes = this.codes.substr(1,(string.length - 1));
         
+        console.log(codes);
+        
         let sql = `Insert into Orcamento_codigos (orcamento_id, codigos) values ${codes}`
         
         con.query(sql, function(err, result){
