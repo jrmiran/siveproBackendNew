@@ -6,15 +6,17 @@ module.exports = function(app, budgetInsertion){
     var codes = "";
     
     app.get(`/${budgetInsertion}/:budgetId/:budgetCodes`, function(req, res){  
+        var codes;
+        console.log(req.params.budgetCodes);
         req.params.budgetCodes.forEach(function(data){
            this.codes = this.codes + "(" + budgetId + "," + data + "),"; 
         });
         
-        var codes;
+        
         
         codes = this.codes.substr(1,(string.length - 1));
         
-        console.log(codes);
+        
         
         let sql = `Insert into Orcamento_codigos (orcamento_id, codigos) values ${codes}`
         
