@@ -5,9 +5,10 @@ module.exports = function(app, budgetInsertion){
     var con = dbConnection();
     var codes = "";
     
-    app.get(`/${budgetInsertion}/:budgetCodes`, function(req, res){  
+    app.get(`/${budgetInsertion}/:budgetCodes/:budgetAmbients`, function(req, res){  
 
-        let sql = `Insert into Orcamento_codigos (Orcamento_id, codigos) values ${req.params.budgetCodes}`;
+        let sql = `Insert into Orcamento_codigos (Orcamento_id, codigos) values ${req.params.budgetCodes};
+                   Insert into Orcamento_comodos (Orcamento_id, comodos) values ${req.params.budgetAmbients};`;
         
         con.query(sql, function(err, result){
             res.send(result);
