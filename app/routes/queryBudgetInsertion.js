@@ -7,7 +7,7 @@ module.exports = function(app, budgetInsertion){
     app.get(`/${budgetInsertion}/:budgetCodes/:budgetAmbients`, function(req, res){  
         
         let sql = `Insert into Orcamento_codigos (Orcamento_id, codigos) values ${req.params.budgetCodes}`;
-        
+        sql = sql + `; Insert into Orcamento_comodos (Orcamento_id, comodos) values ${req.params.budgetAmbients}`;
         con.query(sql, function(err, result){
             res.send(result);
             
