@@ -14,6 +14,7 @@ module.exports = function(app, budgetInsertion){
         con.query(sql, function(err, result){
             console.log(result);
             res.send(result);
+            
         });
     });
 }
