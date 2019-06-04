@@ -5,9 +5,9 @@ module.exports = function(app, budgetInsertion){
     var con = dbConnection();
     var codes = "";
     
-    app.get(`/${budgetInsertion}/:budgetId/:budgetCodes`, function(req, res){  
+    app.get(`/${budgetInsertion}/:budgetCodes`, function(req, res){  
 
-        let sql = `Insert into Orcamento_codigos (orcamento_id, codigos) values ${budgetCodes}`
+        let sql = `Insert into Orcamento_codigos (orcamento_id, codigos) values ${req.params.budgetCodes}`;
         
         con.query(sql, function(err, result){
             res.send(result);
