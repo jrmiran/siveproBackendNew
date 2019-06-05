@@ -3,7 +3,7 @@ var dbConnection = require('../../config/dbConnection');
 
 module.exports = function(app, budgetVendor){
     var con = dbConnection();
-    
+    con.connect();
     app.get(`/${budgetVendor}/:nameEmpresa/:nameVendor`, function(req, res){  
         console.log(req.params.nameEmpresa)
         let sql = `select v.telefone, v.celular, v.email, v.id, c.id from Cliente as c, Vendedor as v where c.nome = ${req.params.nameEmpresa} and v.nome = ${req.params.nameVendor}`
@@ -13,5 +13,6 @@ module.exports = function(app, budgetVendor){
             res.send(result);
         });
     });
+    con.end();
     
 }
