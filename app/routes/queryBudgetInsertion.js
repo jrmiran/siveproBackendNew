@@ -13,10 +13,6 @@ module.exports = function(app, budgetInsertion){
         
         con.end();
         
-        sql = `Insert into Orcamento_codigos (Orcamento_id, codigos) values ${req.params.budgetCodes}`;
-        con.query(sql, function(err, result){
-            res.send(result);
-        });
-        con.end();
+        
     });
 }
