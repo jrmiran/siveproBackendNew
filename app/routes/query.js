@@ -9,5 +9,5 @@ module.exports = function(app, l, q){
             res.send(result);
         });
     });
-    
+    con.end();
 }
