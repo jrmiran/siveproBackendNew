@@ -9,6 +9,5 @@ module.exports = function(app, budgetInsertion){
         con.query(sql, function(err, result){
             res.send(result);
         });
-        con.end();
     });
 }
