@@ -8,7 +8,6 @@ module.exports = function(app, l, q){
         con.query(q, function(err, result){
             res.send(result);
         });
-      con.end();  
     });
     
 }
