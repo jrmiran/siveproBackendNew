@@ -13,7 +13,8 @@ var mysql = require('mysql');
         host: "db4free.net",
         user: "belartte",
         password: "mdcjjh13!@",  
-        database: "belartte"
+        database: "belartte",
+        multipleStatements: true
     });
     
     /*module.exports = function(){
