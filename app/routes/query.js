@@ -5,11 +5,11 @@ module.exports = function(app, l, q){
     var con = dbConnection();
     
     app.get(l, function(req, res){  
-        con.connect();
+        //con.connect();
         con.query(q, function(err, result){
             res.send(result);
         });
-        con.end();
+        //con.end();
     });
     
 }
