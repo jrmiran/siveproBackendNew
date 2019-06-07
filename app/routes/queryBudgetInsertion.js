@@ -6,11 +6,13 @@ module.exports = function(app, budgetInsertion){
     
     app.get(`/${budgetInsertion}/:budgetCodes/:budgetAmbients`, function(req, res){
         //con.connect();
-        let sql = `Insert into Orcamento_comodos (Orcamento_id, comodos) values ${req.params.budgetAmbients} ; Insert into Orcamento_codigos (Orcamento_id, codigos) values ${req.params.budgetCodes}`;
+        let sql = `Insert into Orcamento_comodos (aprovado, caminho, data, desconto, observacao, retificado, tipoCliente, valorTotal, arquiteto_id, clienteEmpresa_id, clienteEmpresaa_id,      clienteJuridico_id, pessoa_id, vendedor_id) values ${req.params.budgetAmbients}
+                   Insert into Orcamento_comodos (Orcamento_id, comodos) values ${req.params.budgetAmbients};
+                   Insert into Orcamento_codigos (Orcamento_id, codigos) values ${req.params.budgetCodes};
+                    `;
         con.query(sql, function(err, result){
             res.send(result);
         });
        // con.end();
-    });
-    
+    });    
 }
