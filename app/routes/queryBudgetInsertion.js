@@ -1,6 +1,5 @@
 var dbConnection = require('../../config/dbConnection');
 
-
 module.exports = function(app, budgetInsertion){
     var con = dbConnection();
     
