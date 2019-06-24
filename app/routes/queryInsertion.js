@@ -1,9 +1,9 @@
 var dbConnection = require('../../config/dbConnection');
 
-module.exports = function(app, budgetInsertion){
+module.exports = function(app, budgetInsertionTest){
     var con = dbConnection();
     
-    app.get(`/${budgetInsertion}/
+    /*app.get(`/${budgetInsertion}/
             :budgetCodes/
             :budgetAmbients/
             :budgetInsertion`, function(req, res){
@@ -23,5 +23,16 @@ module.exports = function(app, budgetInsertion){
             res.send(result);
         });
        // con.end();
-    });    
+    });   */
+    
+    app.get(`/${budgetInsertionTest}/:budgetInsertion`, function(req, res){
+        //con.connect();
+        let sql = `Insert into Orcamento (aprovado, caminho, data, desconto, observacao, retificado, tipoCliente, valorTotal, arquiteto_id, clienteEmpresa_id, clienteEmpresaa_id, clienteJuridico_id, pessoa_id, vendedor_id) values ${req.params.budgetInsertion};
+`;
+        con.query(sql, function(err, result){
+            res.send(result);
+        });
+       // con.end();
+    });
+    
 }

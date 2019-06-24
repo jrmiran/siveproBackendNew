@@ -19,6 +19,7 @@ require('./app/routes/queryVendors')(app,"vendor");
 require('./app/routes/queryBudgets')(app,"budgetVendor");
 require('./app/routes/queryClientBudget')(app,"budgetClient");
 require('./app/routes/queryBudgetInsertion')(app,"budgetInsertion");
+require('./app/routes/queryInsertion')(app,"budgetInsertionTest");
 
 app.listen(porta);
 /*app.listen(3000, function(){
