@@ -5,10 +5,7 @@ module.exports = function(app, budgetInsertion){
     
     app.get(`/${budgetInsertion}/:budgetCodes/:budgetAmbients/:budgetDetails/:budgetItems/:budgetMeasures/:budgetNeedings/:budgetNumbers/:budgetQuantitys/:budgetValues/:budgetInsertion/`, function(req, res){
         //con.connect();
-        let sql = `Insert into Orcamento (aprovado, caminho, data, desconto, observacao, retificado, tipoCliente, valorTotal, arquiteto_id, clienteEmpresa_id, clienteEmpresaa_id, clienteJuridico_id, pessoa_id, vendedor_id) values ${req.params.budgetInsertion};
-                    SELECT LAST_INSERT_ID() INTO @ID;
-                    
-                    Insert into Orcamento_comodos (Orcamento_id, comodos) values ${req.params.budgetAmbients};
+        let sql = ` Insert into Orcamento_comodos (Orcamento_id, comodos) values ${req.params.budgetAmbients};
                     Insert into Orcamento_codigos (Orcamento_id, codigos) values ${req.params.budgetCodes};
                     Insert into Orcamento_detalhes (Orcamento_id, detalhes) values ${req.params.budgetDetails};
                     Insert into Orcamento_itens (Orcamento_id, itens) values ${req.params.budgetItems};
