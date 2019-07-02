@@ -21,6 +21,7 @@ require('./app/routes/queryClientBudget')(app,"budgetClient");
 require('./app/routes/queryBudgetInsertion')(app,"budgetInsertion");
 require('./app/routes/queryInsertion')(app,"budgetInsertionTest");
 require('./app/routes/queryUpdateItem')(app,"updateItem");
+require('./app/routes/queryClientInsertion')(app,"clientInsertion");
 
 app.listen(porta);
 /*app.listen(3000, function(){
