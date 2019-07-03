@@ -12,5 +12,3 @@ module.exports = function(app, clientInsertion){
        // con.end();
     });    
 }
-
-INSERT INTO `ClienteEmpresa`(`id`, `bairro`, `celular`, `celular2`, `cidade`, `complemento`, `email`, `endereco`, `nome`, `telefone`, `telefone2`, `empresa_id`) VALUES (8000,'bairro','celular','celular2','cidade','complemento','email','endereco','nome','telefone','telefone2',(SELECT id from Cliente where Cliente.nome = 'Spazio Bello' and Cliente.DTYPE = 'ClienteJuridico'))
