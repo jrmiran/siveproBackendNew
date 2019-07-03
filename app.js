@@ -22,7 +22,7 @@ require('./app/routes/queryBudgetInsertion')(app,"budgetInsertion");
 require('./app/routes/queryInsertion')(app,"budgetInsertionTest");
 require('./app/routes/queryUpdateItem')(app,"updateItem");
 require('./app/routes/queryClientInsertion')(app,"clientInsertion");
-//require('./app/routes/queryClientStoreInsertion')(app,"clientStoreInsertion");
+require('./app/routes/queryClientStoreInsertion')(app,"clientStoreInsertion");
 
 app.listen(porta);
 /*app.listen(3000, function(){
