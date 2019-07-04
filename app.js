@@ -27,6 +27,7 @@ require('./app/routes/queryUpdateItem')(app,"updateItem");
 require('./app/routes/queryClientInsertion')(app,"clientInsertion");
 require('./app/routes/queryClientStoreInsertion')(app,"clientStoreInsertion");
 require('./app/routes/querySellerInsertion')(app,"sellerInsertion");
+require('./app/routes/queryBudgetEdit')(app,"budgetEdit");
 
 app.listen(porta);
 /*app.listen(3000, function(){
