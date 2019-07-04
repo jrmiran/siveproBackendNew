@@ -14,6 +14,9 @@ require('./app/routes/query')(app, "/clientsFisico",
                               "SELECT nome, id FROM Cliente where Cliente.DTYPE = 'Pessoa'");
 require('./app/routes/query')(app, "/clientsArquiteto",
                               "SELECT nome, id FROM Cliente where Cliente.DTYPE = 'Arquiteto'");
+require('./app/routes/query')(app, "/budgetEdit",
+                              "SELECT nome, id FROM Cliente where Cliente.DTYPE = 'Arquiteto'");
+
 require('./app/routes/queryClients')(app,"clientEmpresa");
 require('./app/routes/queryVendors')(app,"vendor");
 require('./app/routes/queryBudgets')(app,"budgetVendor");
