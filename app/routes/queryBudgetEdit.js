@@ -7,7 +7,7 @@ module.exports = function(app, budgetEdit){
     app.get(`/${budgetEdit}/:budgetId`, function(req, res){
         console.log(req.params.nameEmpresa)
         let sql =   `SELECT ${req.params.budgetId} into @ID;
-                    SELECT comodos from Orcamento_comodos WHERE Orcamento_id = @ID as cmd;
+                    SELECT comodos from Orcamento_comodos WHERE Orcamento_id = @ID;
                     SELECT codigos from Orcamento_codigos WHERE Orcamento_id = @ID;
                     SELECT detalhes from Orcamento_detalhes WHERE Orcamento_id = @ID;
                     SELECT itens from Orcamento_itens WHERE Orcamento_id = @ID;
