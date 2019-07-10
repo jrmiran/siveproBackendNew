@@ -16,7 +16,7 @@ module.exports = function(app, budgetEdit){
                     SELECT numeros from Orcamento_numeros WHERE Orcamento_id = @ID;
                     SELECT quantidades from Orcamento_quantidades WHERE Orcamento_id = @ID;
                     SELECT valores from Orcamento_valores WHERE Orcamento_id = @ID;
-                    SELECT * from Orcamento Where Orcamento.id = @ID`;
+                    SELECT * from Orcamento, Cliente Where Orcamento.id = @ID and Cliente.id = Orcamento.ClienteEmpresaa_id`;
         con.query(sql, function(err, result){
             res.send(result);
         });
