@@ -28,6 +28,8 @@ require('./app/routes/queryClientInsertion')(app,"clientInsertion");
 require('./app/routes/queryClientStoreInsertion')(app,"clientStoreInsertion");
 require('./app/routes/querySellerInsertion')(app,"sellerInsertion");
 require('./app/routes/queryBudgetEdit')(app,"budgetEdit");
+require('./app/routes/queryBudgetUpdate')(app,"budgetUpdate");
+
 
 app.listen(porta);
 /*app.listen(3000, function(){
