@@ -18,8 +18,30 @@ var mysql = require('mysql');
         multipleStatements: true
     });
     }*/
+const pool = mysql.createConnection({
+        connectionLimit,
+        host: "belarttenew.mysql.uhserver.com",
+        user: "belarttenew",
+        password: "mdcjjh13!@",  
+        database: "belarttenew",
+        multipleStatements: true
+    });
 
-module.exports = function(){
+console.log("pool criado");
+
+pool.on('release', () => console.log('pool => conexão retornada'));
+
+process.on('SIGINT', () => 
+    pool.end(err => {
+        if(err) return console.log(err);
+        console.log('pool => fechado');
+        process.exit(0);
+    })
+);
+
+module.exports = pool;
+
+/*module.exports = function(){
     return mysql.createConnection({
         host: "belarttenew.mysql.uhserver.com",
         user: "belarttenew",
@@ -28,7 +50,7 @@ module.exports = function(){
         multipleStatements: true,
         connectionLimit : 100
     });
-}
+}*/
     
     /*module.exports = function(){
     return mysql.createConnection({
