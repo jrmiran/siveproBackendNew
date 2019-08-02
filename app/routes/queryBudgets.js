@@ -12,6 +12,7 @@ module.exports = function(app, budgetVendor){
         
         con.query(sql, function(err, result){
             res.send(result);
+            con.release();
         });
         //con.end();
     });
