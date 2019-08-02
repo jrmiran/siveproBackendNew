@@ -9,7 +9,7 @@ var mysql = require('mysql');
         multipleStatements: true
     });*/
     
-    module.exports = function(){
+    /*module.exports = function(){
     return mysql.createConnection({
         host: "db4free.net",
         user: "belartte",
@@ -17,13 +17,14 @@ var mysql = require('mysql');
         database: "belartte",
         multipleStatements: true
     });
+    }*/
     
-    /*module.exports = function(){
+    module.exports = function(){
     return mysql.createConnection({
         host: "162.241.2.215",
         user: "belart72_belartt",
         password: "mdcjjh13!@",  
         database: "belart72_belartte",
         multipleStatements: true
-    });*/
-}
+    });
+    }
