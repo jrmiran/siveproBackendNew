@@ -18,8 +18,18 @@ var mysql = require('mysql');
         multipleStatements: true
     });
     }*/
+
+module.exports = function(){
+    return mysql.createConnection({
+        host: "belarttenew.mysql.uhserver.com",
+        user: "belarttenew",
+        password: "mdcjjh13!@",  
+        database: "belarttenew",
+        multipleStatements: true
+    });
+}
     
-    module.exports = function(){
+    /*module.exports = function(){
     return mysql.createConnection({
         host: "162.241.2.215",
         user: "belart72_belartt",
@@ -27,4 +37,4 @@ var mysql = require('mysql');
         database: "belart72_belartte",
         multipleStatements: true
     });
-    }
+    }*/
