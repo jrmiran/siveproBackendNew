@@ -28,9 +28,8 @@ module.exports = function(app, budgetUpdate){
                     `;
         con.query(sql, function(err, result){
             res.send(result);
-            
+            //con.release();
         });
-        con.release();
        // con.end();
     });    
 }

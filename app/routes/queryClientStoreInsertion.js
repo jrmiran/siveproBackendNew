@@ -9,8 +9,7 @@ module.exports = function(app, clientStoreInsertion){
          
         con.query(sql, function(err, result){
             res.send(result);
-            
+            //con.release();
         });
-         con.release();
     });
 }

@@ -8,8 +8,8 @@ module.exports = function(app, l, q){
         //con.connect();
         con.query(q, function(err, result){
             res.send(result);
+            //con.release();
         });
-        con.release();
         //con.end();
     });
     
