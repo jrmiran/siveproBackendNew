@@ -25,7 +25,8 @@ module.exports = function(){
         user: "belarttenew",
         password: "mdcjjh13!@",  
         database: "belarttenew",
-        multipleStatements: true
+        multipleStatements: true,
+        connectionLimit : 1000
     });
 }
     
