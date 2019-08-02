@@ -31,8 +31,9 @@ module.exports = function(app, budgetInsertionTest){
 `;
         con.query(sql, function(err, result){
             res.send(result);
-            con.release();
+            
         });
+        con.release();
        // con.end();
     });
     
