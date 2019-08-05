@@ -11,8 +11,8 @@ module.exports = function(app, client){
         
         con.query(sql, function(err, result){
             res.send(result);
-            con.end();
-            //con.release();
+            //con.end();
+            con.release();
         });
         //con.end();
     });   

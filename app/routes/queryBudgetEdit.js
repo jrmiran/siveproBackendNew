@@ -24,8 +24,8 @@ module.exports = function(app, budgetEdit){
                     SELECT * FROM Vendedor WHERE Vendedor.id = @Vendedor`;
         con.query(sql, function(err, result){
             res.send(result);
-            con.end();
-            //con.release();
+            //con.end();
+            con.release();
         });
     });
 }
