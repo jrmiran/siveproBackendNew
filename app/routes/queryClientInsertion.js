@@ -8,6 +8,7 @@ module.exports = function(app, clientInsertion){
         let sql = ` INSERT INTO Cliente (DTYPE, bairro, celular, celular2, cidade, complemento, endereco, nome, telefone, telefone2, cpf, email, cnpj) VALUES (${req.params.clientType},${req.params.clientNeighbor},${req.params.clientCel1},${req.params.clientCel2},${req.params.clientCity},${req.params.clientComplement},${req.params.clientAddress},${req.params.clientName},${req.params.clientTel1},${req.params.clientTel2},${req.params.clientCpf},${req.params.clientEmail},${req.params.clientCnpj})`;
         con.query(sql, function(err, result){
             res.send(result);
+            con.end();
             //con.release();
         });
        // con.end();
