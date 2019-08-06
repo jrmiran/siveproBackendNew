@@ -33,7 +33,7 @@ var mysql = require('mysql');
 module.exports = function(){
     return mysql.createConnection({
         connectionLimit : 10,
-        host: "leafy-respect-248920:southamerica-east1:belartte",
+        host: "35.247.234.28",
         user: "belartte",
         password: "mdcjjh13!@",  
         database: "belartte",
