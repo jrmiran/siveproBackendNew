@@ -19,7 +19,7 @@ var mysql = require('mysql');
     });
     }*/
 
-/*module.exports = function(){
+module.exports = function(){
     return mysql.createConnection({
         connectionLimit : 10,
         host: "belarttenew.mysql.uhserver.com",
@@ -28,9 +28,9 @@ var mysql = require('mysql');
         database: "belarttenew",
         multipleStatements: true
     });
-}*/
+}
 
-module.exports = function(){
+/*module.exports = function(){
     return mysql.createConnection({
         connectionLimit : 10,
         host: "35.247.234.28",
@@ -39,7 +39,7 @@ module.exports = function(){
         database: "belartte",
         multipleStatements: true
     });
-}
+}*/
     
     /*module.exports = function(){
     return mysql.createConnection({
