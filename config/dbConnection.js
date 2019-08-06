@@ -21,7 +21,7 @@ var mysql = require('mysql');
 
 module.exports = function(){
     return mysql.createConnection({
-        connectionLimit : 10,
+        connectionLimit : 100,
         host: "belarttenew.mysql.uhserver.com",
         user: "belarttenew",
         password: "mdcjjh13!@",  
