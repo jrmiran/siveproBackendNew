@@ -33,10 +33,10 @@ var mysql = require('mysql');
 module.exports = function(){
     return mysql.createConnection({
         connectionLimit : 25,
-        host: "mysql380.umbler.com:41890",
-        user: "belartte",
+        host: "mysql669.umbler.com:41890",
+        user: "sivepro",
         password: "mdcjjh13",  
-        database: "belartte",
+        database: "sivepro",
         multipleStatements: true
     });
 }
