@@ -32,6 +32,7 @@ require('./app/routes/queryClientStoreInsertion')(app,"clientStoreInsertion");
 require('./app/routes/querySellerInsertion')(app,"sellerInsertion");
 require('./app/routes/queryBudgetEdit')(app,"budgetEdit");
 require('./app/routes/queryBudgetUpdate')(app,"budgetUpdate");
+require('./app/routes/queryAuthentication')(app,"authentication");
 
 
 app.listen(porta);
