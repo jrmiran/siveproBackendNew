@@ -19,13 +19,24 @@ var mysql = require('mysql');
     });
     }*/
 
-module.exports = function(){
+/*module.exports = function(){
     return mysql.createConnection({
         connectionLimit : 100,
         host: "belarttenew.mysql.uhserver.com",
         user: "belarttenew",
         password: "mdcjjh13!@",  
         database: "belarttenew",
+        multipleStatements: true
+    });
+}*/
+
+module.exports = function(){
+    return mysql.createConnection({
+        connectionLimit : 25,
+        host: "mysql380.umbler.com:41890",
+        user: "belartte",
+        password: "mdcjjh13",  
+        database: "belartte",
         multipleStatements: true
     });
 }
