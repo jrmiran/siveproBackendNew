@@ -11,7 +11,6 @@ module.exports = function(app, budgetInsertion){
                     Insert into Orcamento_detalhes (Orcamento_id, detalhes) values ${req.params.budgetDetails};
                     Insert into Orcamento_itens (Orcamento_id, itens) values ${req.params.budgetItems};
                     Insert into Orcamento_medidas (Orcamento_id, medidas) values ${req.params.budgetMeasures};
-                    Insert into Orcamento_numeros (Orcamento_id, numeros) values ${req.params.budgetNumbers};
                     Insert into Orcamento_valores (Orcamento_id, valores) values ${req.params.budgetValues};
                     Insert into Orcamento_necessidades (Orcamento_id, necessidades) values ${req.params.budgetNeedings};
                     `;
