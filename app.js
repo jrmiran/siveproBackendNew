@@ -36,6 +36,7 @@ require('./app/routes/queryBudgetEdit')(app,"budgetEdit");
 require('./app/routes/queryBudgetUpdate')(app,"budgetUpdate");
 require('./app/routes/queryAuthentication')(app,"authentication");
 require('./app/routes/queryCreateItem')(app,"createItem");
+require('./app/routes/queryStatusBudget')(app,"statusBudget");
 
 
 app.listen(porta, function(){
