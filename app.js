@@ -21,8 +21,6 @@ require('./app/routes/query')(app, "/budgetEdit",
                               "SELECT SQL_CACHE nome, id FROM Cliente where Cliente.DTYPE = 'Arquiteto'");
 require('./app/routes/query')(app, "/searchAllPeople",
                               "SELECT SQL_CACHE * FROM Cliente where Cliente.DTYPE = 'Pessoa'");
-require('./app/routes/query')(app, "/budget",
-                              "SELECT SQL_CACHE * FROM Orcamento");
 
 require('./app/routes/queryClients')(app,"clientEmpresa");
 require('./app/routes/queryVendors')(app,"vendor");
@@ -39,6 +37,7 @@ require('./app/routes/queryBudgetUpdate')(app,"budgetUpdate");
 require('./app/routes/queryAuthentication')(app,"authentication");
 require('./app/routes/queryCreateItem')(app,"createItem");
 require('./app/routes/queryStatusBudget')(app,"statusBudget");
+require('./app/routes/queryBudget')(app,"budget");
 
 
 app.listen(porta, function(){
