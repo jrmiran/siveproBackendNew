@@ -38,6 +38,7 @@ require('./app/routes/queryAuthentication')(app,"authentication");
 require('./app/routes/queryCreateItem')(app,"createItem");
 require('./app/routes/queryStatusBudget')(app,"statusBudget");
 require('./app/routes/queryBudget')(app,"budget");
+require('./app/routes/queryServiceOrder')(app,"serviceOrder");
 
 
 app.listen(porta, function(){
