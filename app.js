@@ -39,6 +39,7 @@ require('./app/routes/queryCreateItem')(app,"createItem");
 require('./app/routes/queryStatusBudget')(app,"statusBudget");
 require('./app/routes/queryBudget')(app,"budget");
 require('./app/routes/queryServiceOrder')(app,"serviceOrder");
+require('./app/routes/queryServiceOrderInsertion')(app,"serviceOrderInsertion");
 
 
 app.listen(porta, function(){
