@@ -21,6 +21,8 @@ require('./app/routes/query')(app, "/budgetEdit",
                               "SELECT SQL_CACHE nome, id FROM Cliente where Cliente.DTYPE = 'Arquiteto'");
 require('./app/routes/query')(app, "/searchAllPeople",
                               "SELECT SQL_CACHE * FROM Cliente where Cliente.DTYPE = 'Pessoa'");
+require('./app/routes/query')(app, "/searchAllServiceOrder",
+                              "SELECT SQL_CACHE * FROM OrdemServico);
 
 require('./app/routes/queryClients')(app,"clientEmpresa");
 require('./app/routes/queryVendors')(app,"vendor");
