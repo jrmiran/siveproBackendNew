@@ -42,6 +42,7 @@ require('./app/routes/queryStatusBudget')(app,"statusBudget");
 require('./app/routes/queryBudget')(app,"budget");
 require('./app/routes/queryServiceOrder')(app,"serviceOrder");
 require('./app/routes/queryServiceOrderInsertion')(app,"serviceOrderInsertion");
+require('./app/routes/queryInsertSOExecution')(app,"soExecution");
 
 
 app.listen(porta, function(){
