@@ -24,7 +24,7 @@ require('./app/routes/query')(app, "/searchAllPeople",
 require('./app/routes/query')(app, "/searchAllServiceOrder",
                               "SELECT SQL_CACHE * FROM OrdemServico");
 require('./app/routes/query')(app, "/searchAllEmployees",
-                              "SELECT SQL_CACHE * FROM Funcionario");
+                              "SELECT SQL_CACHE * FROM Funcionario WHERE Funcionario.dataDemissao = "" and Funcionario.funcao_funcao IN ('Acabador', 'Ajudante Geral', 'Serrador')";
 
 require('./app/routes/queryClients')(app,"clientEmpresa");
 require('./app/routes/queryVendors')(app,"vendor");
