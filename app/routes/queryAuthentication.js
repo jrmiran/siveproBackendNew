@@ -6,7 +6,7 @@ module.exports = function(app, authentication){
     
     app.get(`/${authentication}/:user/:password`, function(req, res){
         console.log(req.params.nameEmpresa)
-        let sql = `SELECT nome FROM Usuario WHERE Usuario.id = ${req.params.user} and Usuario.senha = ${req.params.password}`;
+        let sql = `SELECT * FROM Usuario WHERE Usuario.id = ${req.params.user} and Usuario.senha = ${req.params.password}`;
         
         con.query(sql, function(err, result){
             res.send(result);
