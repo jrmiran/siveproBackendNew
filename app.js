@@ -46,6 +46,7 @@ require('./app/routes/queryServiceOrder')(app,"serviceOrder");
 require('./app/routes/queryServiceOrderInsertion')(app,"serviceOrderInsertion");
 require('./app/routes/queryInsertSOExecution')(app,"soExecution");
 require('./app/routes/queryInsertImageSO')(app,"insertImageSO");
+require('./app/routes/postTest')(app,"postTest");
 
 
 app.listen(porta, function(){
