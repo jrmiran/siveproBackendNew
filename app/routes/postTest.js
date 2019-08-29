@@ -15,6 +15,7 @@ module.exports = function(app, postTest){
     
     
     app.post(`/${postTest}`, function(req, res){
-        res.send(req.body);
+        let obj = {nome: "Nome", idade: "Idade"};
+        res.send(obj);
     });
 }
