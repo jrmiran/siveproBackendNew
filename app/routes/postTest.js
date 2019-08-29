@@ -15,6 +15,10 @@ module.exports = function(app, postTest){
     
     
     app.post(`/${postTest}`, function(req, res){
-       res.send("Retorno!"); 
+        let sql = `SELECT * FROM Orcamento`;
+        
+        con.query(sql, function(err, result){
+            res.send(result);
+        });
     });
 }
