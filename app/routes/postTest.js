@@ -15,6 +15,6 @@ module.exports = function(app, postTest){
     
     
     app.post(`/${postTest}`, function(req, res){
-        res.send(req);
+        res.send(req.body);
     });
 }
