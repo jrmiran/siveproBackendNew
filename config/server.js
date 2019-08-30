@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var bodyParser = require('body-parser');
+//var bodyParser = require('body-parser');
 
 function ignoreFavicon(req, res, next) {
   if (req.originalUrl === '/favicon.ico') {
@@ -17,7 +17,7 @@ app.use(function(req, res, next) {
   next();
 });
 app.use(ignoreFavicon);
-app.use(bodyParser);
+//app.use(bodyParser);
 app.set('view engine', 'ejs');
 app.set('views', './app/views');
 
