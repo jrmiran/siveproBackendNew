@@ -18,7 +18,7 @@ module.exports = function(app, postTest){
         let sql = ` UPDATE OrdemServico SET imagem = '${req.body.image}' WHERE OrdemServico.id = ${req.body.idSO}`;
         con.query(sql, function(err, result){
             //var obj = {query: JSON.stringify(result)};
-            res.send(result);
+            res.send(req.body);
         });
     });
 }
