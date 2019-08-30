@@ -16,7 +16,7 @@ module.exports = function(app, postTest){
     app.post(`/${postTest}`, function(req, res){
         let sql = `SELECT * FROM Usuario WHERE Usuario.id = ${req.body['texto']}` ;
         con.query(sql, function(err, result){
-            var obj = {query: JSON.stringify(result)};
+            var obj = {query: "QUERY!"};
             res.send(obj);
         });
     });
