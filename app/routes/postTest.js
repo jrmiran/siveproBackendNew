@@ -14,7 +14,8 @@ module.exports = function(app, postTest){
     
     
     app.post(`/${postTest}`, function(req, res){
-        let obj = {nome: "Nome", idade: "Idade"};
-        res.send(req.body);
+        let sql = "SELECT * FROM Usuario";
+        let obj = {textoObj: req.body['texto']}
+        res.send(obj);
     });
 }
