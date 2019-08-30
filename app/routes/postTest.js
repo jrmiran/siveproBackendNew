@@ -1,6 +1,5 @@
 var dbConnection = require('../../config/dbConnection');
 
-
 module.exports = function(app, postTest){
     var con = dbConnection();
     
