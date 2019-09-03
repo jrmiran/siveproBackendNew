@@ -14,10 +14,8 @@ module.exports = function(app, postTest){
     
     
     app.post(`/${postTest}`, function(req, res){
-        //let sql = `SELECT * FROM Usuario WHERE Usuario.id = '${req.body.texto}'` ;
         let sql = ` UPDATE OrdemServico SET imagem = '${req.body.image}' WHERE OrdemServico.id = ${req.body.idOs}`;
         con.query(sql, function(err, result){
-            //var obj = {query: JSON.stringify(result)};
             res.send(result);
         });
     });
