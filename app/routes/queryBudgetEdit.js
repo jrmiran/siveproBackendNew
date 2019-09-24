@@ -24,8 +24,6 @@ module.exports = function(app, budgetEdit){
                     SELECT SQL_CACHE * FROM Vendedor WHERE Vendedor.id = @Vendedor`;
         con.query(sql, function(err, result){
             res.send(result);
-            //con.end();
-            //con.release();
         });
     });
 }

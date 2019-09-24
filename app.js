@@ -1,6 +1,6 @@
 var app = require('./config/server');
-var porta = process.env.PORT || 8080;
-//var porta = 3000;
+//var porta = process.env.PORT || 8080;
+var porta = 3000;
 
 require('./app/routes/keepConnected')(app, "/keepConnected", 
                              "SELECT SQL_CACHE 1");
@@ -25,6 +25,8 @@ require('./app/routes/query')(app, "/searchAllServiceOrder",
                               "SELECT SQL_CACHE * FROM OrdemServico");
 require('./app/routes/query')(app, "/searchAllEmployees",
                               "SELECT SQL_CACHE * FROM Funcionario WHERE Funcionario.dataDemissao = '' and Funcionario.funcao_funcao IN ('Acabador', 'Ajudante Geral', 'Serrador')");
+require('./app/routes/query')(app, "/materials",
+                              "SELECT SQL_CACHE * FROM Materia");
 
 require('./app/routes/queryClients')(app,"clientEmpresa");
 require('./app/routes/queryVendors')(app,"vendor");
@@ -48,6 +50,15 @@ require('./app/routes/queryInsertSOExecution')(app,"soExecution");
 require('./app/routes/queryInsertImageSO')(app,"insertImageSO");
 require('./app/routes/postTest')(app,"postTest");
 require('./app/routes/queryServiceOrderId')(app,"serviceOrderId");
+require('./app/routes/queryFileDropTest')(app,"fileDropTest");
+require('./app/routes/queryBudgetExplosion')(app,"budgetExplosion");
+require('./app/routes/postInsertBudgetItems')(app,"postInsertBudgetItems");
+require('./app/routes/queryFindBudgetItems')(app,"findBudgetItems");
+require('./app/routes/queryDraw')(app,"draw");
+require('./app/routes/postInsertDraw')(app,"postInsertDraw");
+require('./app/routes/postInsertMaterial')(app,"postInsertMaterial");
+require('./app/routes/queryDeleteBudgetItem')(app,"deleteBudgetItem");
+require('./app/routes/postUpdateBudgetItem')(app,"postUpdateBudgetItem");
 
 
 app.listen(porta, function(){
