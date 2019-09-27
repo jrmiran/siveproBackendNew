@@ -59,6 +59,7 @@ require('./app/routes/postInsertDraw')(app,"postInsertDraw");
 require('./app/routes/postInsertMaterial')(app,"postInsertMaterial");
 require('./app/routes/queryDeleteBudgetItem')(app,"deleteBudgetItem");
 require('./app/routes/postUpdateBudgetItem')(app,"postUpdateBudgetItem");
+require('./app/routes/postBudgetUpdate')(app,"postBudgetUpdate");
 
 
 app.listen(porta, function(){
