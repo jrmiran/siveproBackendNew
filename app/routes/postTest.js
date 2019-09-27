@@ -8,7 +8,6 @@ module.exports = function(app, postTest){
         let sql = `SELECT * FROM Orcamento WHERE Orcamento.id = ${req.params.id}`;
         
         con.query(sql, function(err, result){
-            res.send(result);
         });
     });*/
     
