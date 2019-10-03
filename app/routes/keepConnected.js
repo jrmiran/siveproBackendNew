@@ -9,5 +9,4 @@ module.exports = function(app, l, q){
         setInterval(function () { con.query(q); }, 5000);
         //con.end();
     });
-    
 }
