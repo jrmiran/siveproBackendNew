@@ -7,8 +7,6 @@ module.exports = function(app, postTest){
         console.log(req.params.nameEmpresa)
         let sql = `SELECT * FROM Orcamento WHERE Orcamento.id = ${req.params.id}`;
         
-        con.query(sql, function(err, result){
-        });
     });*/
     
     

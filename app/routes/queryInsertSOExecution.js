@@ -4,6 +4,7 @@ module.exports = function(app, soExecution){
     var con = dbConnection();
     
     app.get(`/${soExecution}/:osId/:date/:stone/:empreita/:stoneValue/:employees/:shares/:empreitaValue`, function(req, res){
+        console.log(req.params);
         let sql =   `DELETE FROM OrdemServico_funcionarios WHERE OrdemServico_funcionarios.OrdemServico_id = ${req.params.osId};
                      DELETE FROM OrdemServico_porcentagens WHERE OrdemServico_porcentagens.OrdemServico_id = ${req.params.osId};
                      INSERT INTO OrdemServico_funcionarios(OrdemServico_id, funcionarios) VALUES ${req.params.employees};
