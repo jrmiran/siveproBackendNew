@@ -61,6 +61,9 @@ require('./app/routes/queryDeleteBudgetItem')(app,"deleteBudgetItem");
 require('./app/routes/postUpdateBudgetItem')(app,"postUpdateBudgetItem");
 require('./app/routes/postBudgetUpdate')(app,"postBudgetUpdate");
 require('./app/routes/postPayment')(app,"postPayment");
+require('./app/routes/postSearchClients')(app,"postSearchClients");
+require('./app/routes/postSearchClient')(app,"postSearchClient");
+require('./app/routes/postUpdateClient')(app,"postUpdateClient");
 
 
 app.listen(porta, function(){
