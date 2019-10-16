@@ -64,6 +64,7 @@ require('./app/routes/postPayment')(app,"postPayment");
 require('./app/routes/postSearchClients')(app,"postSearchClients");
 require('./app/routes/postSearchClient')(app,"postSearchClient");
 require('./app/routes/postUpdateClient')(app,"postUpdateClient");
+require('./app/routes/postBudgetsClient')(app,"postBudgetsClient");
 
 
 app.listen(porta, function(){
