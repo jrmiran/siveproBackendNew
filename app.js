@@ -69,6 +69,7 @@ require('./app/routes/postSearchPaymentForm')(app,"postSearchPaymentForm");
 require('./app/routes/postSearchPaymentType')(app,"postSearchPaymentType");
 require('./app/routes/postInsertPayment')(app,"postInsertPayment");
 require('./app/routes/postEditPayment')(app,"postEditPayment");
+require('./app/routes/postBudgetInsertion')(app,"postBudgetInsertion");
 
 
 app.listen(porta, function(){
