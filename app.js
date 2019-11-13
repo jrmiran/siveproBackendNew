@@ -70,6 +70,10 @@ require('./app/routes/postSearchPaymentType')(app,"postSearchPaymentType");
 require('./app/routes/postInsertPayment')(app,"postInsertPayment");
 require('./app/routes/postEditPayment')(app,"postEditPayment");
 require('./app/routes/postBudgetInsertion')(app,"postBudgetInsertion");
+require('./app/routes/postBudgetClientStore')(app,"postBudgetClientStore");
+
+
+
 
 
 app.listen(porta, function(){
