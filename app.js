@@ -71,9 +71,10 @@ require('./app/routes/postInsertPayment')(app,"postInsertPayment");
 require('./app/routes/postEditPayment')(app,"postEditPayment");
 require('./app/routes/postBudgetInsertion')(app,"postBudgetInsertion");
 require('./app/routes/postBudgetClientStore')(app,"postBudgetClientStore");
-
-
-
+require('./app/routes/postSearchAllprojects')(app,"postSearchAllProjects");
+require('./app/routes/postSearchProjectByBudget')(app,"postSearchProjectByBudget");
+require('./app/routes/postSearchProjectByClient')(app,"postSearchProjectByClient");
+require('./app/routes/postSearchProjectByStore')(app,"postSearchProjectByStore");
 
 
 app.listen(porta, function(){
