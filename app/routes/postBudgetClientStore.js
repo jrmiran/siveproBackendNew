@@ -11,6 +11,5 @@ module.exports = function(app, postBudgetClientStore){
             //con.end();
             //con.release();
         });
-       // con.end();
     });    
 }
