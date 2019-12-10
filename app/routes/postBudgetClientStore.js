@@ -9,7 +9,6 @@ module.exports = function(app, postBudgetClientStore){
         con.query(sql, function(err, result){
             res.send(result);
             //con.end();
-            //con.release();
         });
     });    
 }
