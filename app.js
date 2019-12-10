@@ -83,6 +83,3 @@ require('./app/routes/postinsertPaymentType')(app,"postInsertPaymentType");
 app.listen(porta, function(){
     console.log("Server ON");
 });
-/*app.listen(3000, function(){
-    console.log("Servidor ON");
-});*/
