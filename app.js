@@ -76,6 +76,8 @@ require('./app/routes/postSearchProjectByBudget')(app,"postSearchProjectByBudget
 require('./app/routes/postSearchProjectByClient')(app,"postSearchProjectByClient");
 require('./app/routes/postSearchProjectByStore')(app,"postSearchProjectByStore");
 require('./app/routes/postImageDraw')(app,"postImageDraw");
+require('./app/routes/postInsertPaymentForm')(app,"postInsertPaymentForm");
+require('./app/routes/postinsertPaymentType')(app,"postInsertPaymentType");
 
 
 app.listen(porta, function(){
