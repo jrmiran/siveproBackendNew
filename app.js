@@ -78,6 +78,7 @@ require('./app/routes/postSearchProjectByStore')(app,"postSearchProjectByStore")
 require('./app/routes/postImageDraw')(app,"postImageDraw");
 require('./app/routes/postInsertPaymentForm')(app,"postInsertPaymentForm");
 require('./app/routes/postInsertPaymentType')(app,"postInsertPaymentType");
+require('./app/routes/postRemovePayment')(app,"postRemovePayment");
 
 
 app.listen(porta, function(){
