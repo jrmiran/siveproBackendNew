@@ -19,6 +19,5 @@ module.exports = function(app, budgetInsertion){
             //con.end();
             //con.release();
         });
-       // con.end();
     });    
 }
