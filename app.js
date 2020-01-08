@@ -1,6 +1,5 @@
 var app = require('./config/server');
 var porta = process.env.PORT || 3000;
-//var porta = 3000;
 
 require('./app/routes/keepConnected')(app, "/keepConnected", 
                              "SELECT SQL_CACHE 1");
@@ -79,6 +78,7 @@ require('./app/routes/postImageDraw')(app,"postImageDraw");
 require('./app/routes/postInsertPaymentForm')(app,"postInsertPaymentForm");
 require('./app/routes/postInsertPaymentType')(app,"postInsertPaymentType");
 require('./app/routes/postRemovePayment')(app,"postRemovePayment");
+require('./app/routes/postInsertion')(app,"postInsertion");
 
 
 app.listen(porta, function(){

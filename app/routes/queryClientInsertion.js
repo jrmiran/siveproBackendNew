@@ -12,5 +12,5 @@ module.exports = function(app, clientInsertion){
             //con.release();
         });
        // con.end();
-    });    
+    });
 }
