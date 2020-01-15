@@ -14,7 +14,6 @@ module.exports = function(app, budgetInsertionTest){
             //con.end();
             //con.release();
         });
-       // con.end();
     });
     
 }
