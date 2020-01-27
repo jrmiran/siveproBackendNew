@@ -23,7 +23,7 @@ require('./app/routes/query')(app, "/searchAllPeople",
 require('./app/routes/query')(app, "/searchAllServiceOrder",
                               "SELECT SQL_CACHE * FROM OrdemServico");
 require('./app/routes/query')(app, "/searchAllEmployees",
-                              "SELECT SQL_CACHE * FROM Funcionario WHERE Funcionario.dataDemissao = '' and Funcionario.funcao_funcao IN ('Acabador', 'Ajudante Geral', 'Serrador')");
+                              "SELECT SQL_CACHE * FROM Funcionario WHERE Funcionario.dataDemissao = '' and Funcionario.funcao_funcao IN ('Acabador', 'Ajudante Geral', 'Serrador', 'Acabador Fixo')");
 require('./app/routes/query')(app, "/materials",
                               "SELECT SQL_CACHE * FROM Materia");
 
@@ -79,6 +79,7 @@ require('./app/routes/postInsertPaymentForm')(app,"postInsertPaymentForm");
 require('./app/routes/postInsertPaymentType')(app,"postInsertPaymentType");
 require('./app/routes/postRemovePayment')(app,"postRemovePayment");
 require('./app/routes/postInsertion')(app,"postInsertion");
+require('./app/routes/postServiceOrderByEmployee')(app,"postServiceOrderByEmployee");
 
 
 app.listen(porta, function(){

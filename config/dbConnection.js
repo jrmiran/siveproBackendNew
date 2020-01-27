@@ -42,6 +42,10 @@ var mysql = require('mysql');
     });
 }*/
 
+
+
+/***************** PRINCIPAL *******************/
+
 module.exports = function(){
     return mysql.createConnection({
         connectionLimit : 25,
@@ -53,6 +57,21 @@ module.exports = function(){
         multipleStatements: true
     });
 }
+
+/***************** PRINCIPAL *******************/
+
+/*
+module.exports = function(){
+    return mysql.createConnection({
+        connectionLimit : 25,
+        host: "162.241.2.215",
+        user: "belart72_temp",
+        password: "porcelanato2457",  
+        database: "belart72_temp",
+        multipleStatements: true
+    });
+}
+*/
 
 /*module.exports = function(){
     return mysql.createConnection({
