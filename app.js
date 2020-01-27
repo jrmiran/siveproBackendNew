@@ -80,6 +80,7 @@ require('./app/routes/postInsertPaymentType')(app,"postInsertPaymentType");
 require('./app/routes/postRemovePayment')(app,"postRemovePayment");
 require('./app/routes/postInsertion')(app,"postInsertion");
 require('./app/routes/postServiceOrderByEmployee')(app,"postServiceOrderByEmployee");
+require('./app/routes/postSearchAllEmployees')(app,"postSearchAllEmployees");
 
 
 app.listen(porta, function(){
