@@ -81,6 +81,10 @@ require('./app/routes/postRemovePayment')(app,"postRemovePayment");
 require('./app/routes/postInsertion')(app,"postInsertion");
 require('./app/routes/postServiceOrderByEmployee')(app,"postServiceOrderByEmployee");
 require('./app/routes/postSearchAllEmployees')(app,"postSearchAllEmployees");
+require('./app/routes/postSearchAllRequests')(app,"postSearchAllRequests");
+require('./app/routes/postSearchStore')(app,"postSearchStore");
+require('./app/routes/postSearchBudgetItemByBudget')(app,"postSearchBudgetItemByBudget");
+require('./app/routes/postSearchBudgetByStoreId')(app,"postSearchBudgetByStoreId");
 
 
 app.listen(porta, function(){
