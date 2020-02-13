@@ -85,6 +85,7 @@ require('./app/routes/postSearchAllRequests')(app,"postSearchAllRequests");
 require('./app/routes/postSearchStore')(app,"postSearchStore");
 require('./app/routes/postSearchBudgetItemByBudget')(app,"postSearchBudgetItemByBudget");
 require('./app/routes/postSearchBudgetByStoreId')(app,"postSearchBudgetByStoreId");
+require('./app/routes/postInsertRequest')(app,"postInsertRequest");
 
 
 app.listen(porta, function(){
