@@ -4,7 +4,7 @@ module.exports = function(app, postSearchAllFromRequest){
     var con = dbConnection();
     
     app.post(`/${postSearchAllFromRequest}`, function(req, res){
-        let sql = `SELECT p.id, p.cliente_id, p.valor, p.data, p.dataPrevistaPagamento, p.observacao, c.nome as nomeCliente FROM Pedido as p, Cliente as c WHERE p.id = ${req.body.id} AND c.id = p.cliente_id;
+        let sql = `SELECT p.id, p.cliente_id, p.valor, p.data, p.dataPrevistaPagamento, p.observacao, p.status, c.nome as nomeCliente FROM Pedido as p, Cliente as c WHERE p.id = ${req.body.id} AND c.id = p.cliente_id;
                    SELECT * FROM Pedido_orcamentos WHERE pedido_id = ${req.body.id};
                    SELECT * FROM Pedido_itemsOrcamentos WHERE pedido_id = ${req.body.id};
                    SELECT * FROM Pedido_pagamentos WHERE pedido_id = ${req.body.id};
