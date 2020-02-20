@@ -88,6 +88,8 @@ require('./app/routes/postSearchBudgetByStoreId')(app,"postSearchBudgetByStoreId
 require('./app/routes/postInsertRequest')(app,"postInsertRequest");
 require('./app/routes/postSearchAllFromRequest')(app,"postSearchAllFromRequest");
 require('./app/routes/postSearchDataFromRequest')(app,"postSearchDataFromRequest");
+require('./app/routes/postInsertPaymentOnRequest')(app,"postInsertPaymentOnRequest");
+require('./app/routes/postSearchPaymentFromRequest')(app,"postSearchPaymentFromRequest");
 
 
 app.listen(porta, function(){
