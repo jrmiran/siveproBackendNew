@@ -90,6 +90,7 @@ require('./app/routes/postSearchAllFromRequest')(app,"postSearchAllFromRequest")
 require('./app/routes/postSearchDataFromRequest')(app,"postSearchDataFromRequest");
 require('./app/routes/postInsertPaymentOnRequest')(app,"postInsertPaymentOnRequest");
 require('./app/routes/postSearchPaymentFromRequest')(app,"postSearchPaymentFromRequest");
+require('./app/routes/postUpdateRequestStatus')(app,"postUpdateRequestStatus");
 
 
 app.listen(porta, function(){
