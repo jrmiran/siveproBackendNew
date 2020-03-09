@@ -1,9 +1,5 @@
-//var dbConnection = require('../../config/dbConnection');
-
 module.exports = function(app, budgetInsertion, dbConnection){
-    var con = dbConnection();
-    
-    app.get(`/${budgetInsertion}/:budgetCodes/:budgetAmbients/:budgetDetails/:budgetItems/:budgetMeasures/:budgetNeedings/:budgetNumbers/:budgetQuantitys/:budgetValues/:budgetInsertion/`, function(req, res){
+ app.get(`/${budgetInsertion}/:budgetCodes/:budgetAmbients/:budgetDetails/:budgetItems/:budgetMeasures/:budgetNeedings/:budgetNumbers/:budgetQuantitys/:budgetValues/:budgetInsertion/`, function(req, res){
         //con.connect();
         let sql = ` Insert into Orcamento_quantidades (Orcamento_id, quantidades) values ${req.params.budgetQuantitys};
                     Insert into Orcamento_comodos (Orcamento_id, comodos) values ${req.params.budgetAmbients};
@@ -14,10 +10,11 @@ module.exports = function(app, budgetInsertion, dbConnection){
                     Insert into Orcamento_valores (Orcamento_id, valores) values ${req.params.budgetValues};
                     Insert into Orcamento_necessidades (Orcamento_id, necessidades) values ${req.params.budgetNeedings};
                     `;
-        con.query(sql, function(err, result){
-            res.send(result);
-            //con.end();
-            //con.release();
-        });
+        pool.getConnection((err, con) => {
+            con.query(sql, function(err, result){
+                res.send(result);
+                con.release();
+            });
+        })
     });    
 }

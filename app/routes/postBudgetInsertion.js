@@ -1,7 +1,4 @@
-//var dbConnection = require('../../config/dbConnection');
-
-module.exports = function(app, postBudgetInsertion, dbConnection){
-    var con = dbConnection();
+module.exports = function(app, postBudgetInsertion, dbConnection, pool){
     
     app.post(`/${postBudgetInsertion}`, function(req, res){
         //con.connect();
@@ -14,11 +11,11 @@ module.exports = function(app, postBudgetInsertion, dbConnection){
                     Insert into Orcamento_valores (Orcamento_id, valores) values ${req.body.budgetValues};
                     Insert into Orcamento_necessidades (Orcamento_id, necessidades) values ${req.body.budgetNeedings};
                     `;
-        con.query(sql, function(err, result){
-            res.send(result);
-            //con.end();
-            //con.release();
-        });
-       // con.end();
+        pool.getConnection((err, con) => {
+            con.query(sql, function(err, result){
+                res.send(result);
+                con.release();
+            });
+        })
     });    
 }

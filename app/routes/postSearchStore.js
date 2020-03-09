@@ -1,11 +1,12 @@
-//var dbConnection = require('../../config/dbConnection');
 
-module.exports = function(app, postSearchStore, dbConnection){
-    var con = dbConnection();
+module.exports = function(app, postSearchStore, dbConnection, pool){
     app.post(`/${postSearchStore}`, function(req, res){
         let sql = `SELECT id, nome FROM Cliente WHERE DTYPE = 'ClienteJurídico'`;
-        con.query(sql, function(err, result){
-            res.send(result);
-        });
+        pool.getConnection((err, con) => {
+            con.query(sql, function(err, result){
+                res.send(result);
+                con.release();
+            });
+        })
     });
 }

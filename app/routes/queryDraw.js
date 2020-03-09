@@ -1,8 +1,4 @@
-//var dbConnection = require('../../config/dbConnection');
-
-
-module.exports = function(app, draw, dbConnection){
-    var con = dbConnection();
+module.exports = function(app, draw, dbConnection, pool){
     
     app.get(`/${draw}/:budgetId`, function(req, res){
         
@@ -11,8 +7,11 @@ module.exports = function(app, draw, dbConnection){
                     SELECT clienteEmpresaa_id FROM Orcamento WHERE Orcamento.id = ${req.params.budgetId} INTO @CLIENT;
                     SELECT nome FROM Cliente WHERE Cliente.id = @STORE;
                     SELECT nome FROM ClienteEmpresa WHERE ClienteEmpresa.id = @CLIENT;`;
-        con.query(sql, function(err, result){
-            res.send(result);
-        });
+        pool.getConnection((err, con) => {
+            con.query(sql, function(err, result){
+                res.send(result);
+                con.release();
+            });
+        })
     });
 }

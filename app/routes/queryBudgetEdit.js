@@ -1,8 +1,4 @@
-//var dbConnection = require('../../config/dbConnection');
-
-
-module.exports = function(app, budgetEdit, dbConnection){
-    var con = dbConnection();
+module.exports = function(app, budgetEdit, dbConnection, pool){
     
     app.get(`/${budgetEdit}/:budgetId`, function(req, res){
         console.log(req.params.nameEmpresa)
@@ -22,8 +18,11 @@ module.exports = function(app, budgetEdit, dbConnection){
                     SELECT SQL_CACHE * FROM Cliente WHERE Cliente.id = @Pessoa;
                     SELECT SQL_CACHE * FROM ClienteEmpresa WHERE ClienteEmpresa.id = @ClienteEmpresa;
                     SELECT SQL_CACHE * FROM Vendedor WHERE Vendedor.id = @Vendedor`;
-        con.query(sql, function(err, result){
-            res.send(result);
-        });
+        pool.getConnection((err, con) => {
+            con.query(sql, function(err, result){
+                res.send(result);
+                con.release();
+            });
+        })
     });
 }

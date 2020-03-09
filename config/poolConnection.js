@@ -3,7 +3,7 @@ var mysql = require('mysql');
 module.exports = function(){
     
     
-    return mysql.createConnection({
+    return mysql.createPool({
         connectionLimit : 25,
         host: "mysql669.umbler.com",
         user: "belartte",

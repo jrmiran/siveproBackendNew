@@ -1,7 +1,5 @@
-//var dbConnection = require('../../config/dbConnection');
 
-module.exports = function(app, postInsertRequest, dbConnection){
-    var con = dbConnection();
+module.exports = function(app, postInsertRequest, dbConnection, pool){
     app.post(`/${postInsertRequest}`, function(req, res){
         console.log(req.body);
         
@@ -41,8 +39,11 @@ module.exports = function(app, postInsertRequest, dbConnection){
                    INSERT INTO Pedido_itemsOrcamentos VALUES ${itemsBudgets};`;
         console.log(sql);
         
-        con.query(sql, function(err, result){
-            res.send(result);
-        });
+        pool.getConnection((err, con) => {
+            con.query(sql, function(err, result){
+                res.send(result);
+                con.release();
+            });
+        })
     });
 }

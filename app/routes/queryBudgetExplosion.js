@@ -1,9 +1,4 @@
-//var dbConnection = require('../../config/dbConnection');
-
-
-module.exports = function(app, budgetExplosion, dbConnection){
-    var con = dbConnection();
-    
+module.exports = function(app, budgetExplosion, dbConnection, pool){
     app.get(`/${budgetExplosion}`, function(req, res){
         console.log(req.params.nameEmpresa)
         let sql =   `
@@ -19,10 +14,11 @@ module.exports = function(app, budgetExplosion, dbConnection){
                     SELECT SQL_CACHE * from Orcamento_quantidades WHERE Orcamento_id BETWEEN @IDMIN AND @IDMAX;
                     SELECT SQL_CACHE * from Orcamento_valores WHERE Orcamento_id BETWEEN @IDMIN AND @IDMAX;
                     SELECT SQL_CACHE id, desconto from Orcamento WHERE Orcamento.id BETWEEN @IDMIN AND @IDMAX;`;
-        con.query(sql, function(err, result){
-            res.send(result);
-            //con.end();
-            //con.release();
-        });
+        pool.getConnection((err, con) => {
+            con.query(sql, function(err, result){
+                res.send(result);
+                con.release();
+            });
+        })
     });
 }

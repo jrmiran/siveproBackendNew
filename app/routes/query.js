@@ -1,17 +1,13 @@
-//var dbConnection = require('../../config/dbConnection');
-
-
-module.exports = function(app, l, q, dbConnection){
+module.exports = function(app, l, q, dbConnection, pool){
     var con = dbConnection();
     
     app.get(l, function(req, res){  
-        //con.connect();
-        con.query(q, function(err, result){
-            res.send(result);
-            //con.end();
-            //con.release();
-        });
-        //con.end();
+        pool.getConnection((err, con) => {
+            con.query(q, function(err, result){
+                res.send(result);
+                con.release();
+            });
+        })
     });
     
 }

@@ -1,9 +1,5 @@
-//var dbConnection = require('../../config/dbConnection');
-
-module.exports = function(app, budgetUpdate, dbConnection){
-    var con = dbConnection();
-    
-    app.get(`/${budgetUpdate}/:budgetId/:discount/:note/:retified/:amount/:budgetCodes/:budgetAmbients/:budgetDetails/:budgetItems/:budgetMeasures/:budgetNeedings/:budgetNumbers/:budgetQuantitys/:budgetValues`, function(req, res){
+module.exports = function(app, budgetUpdate, dbConnection, pool){
+ app.get(`/${budgetUpdate}/:budgetId/:discount/:note/:retified/:amount/:budgetCodes/:budgetAmbients/:budgetDetails/:budgetItems/:budgetMeasures/:budgetNeedings/:budgetNumbers/:budgetQuantitys/:budgetValues`, function(req, res){
         let sql = ` UPDATE Orcamento SET desconto = ${req.params.discount}, observacao = ${req.params.note}, retificado = ${req.params.retified}, valorTotal = ${req.params.amount} WHERE Orcamento.id = ${req.params.budgetId};
                     DELETE FROM Orcamento_comodos WHERE Orcamento_comodos.orcamento_id = ${req.params.budgetId};
                     DELETE FROM Orcamento_codigos WHERE Orcamento_codigos.orcamento_id = ${req.params.budgetId};
@@ -25,8 +21,11 @@ module.exports = function(app, budgetUpdate, dbConnection){
                     Insert into Orcamento_valores (Orcamento_id, valores) values ${req.params.budgetValues};
                     Insert into Orcamento_numeros (Orcamento_id, numeros) values ${req.params.budgetNumbers};
                     `;
-        con.query(sql, function(err, result){
-            res.send(result);
-        });
+        pool.getConnection((err, con) => {
+            con.query(sql, function(err, result){
+                res.send(result);
+                con.release();
+            });
+        })
     });    
 }

@@ -1,20 +1,17 @@
-//var dbConnection = require('../../config/dbConnection');
 
 
-module.exports = function(app, client, dbConnection){
-    var con = dbConnection();
+module.exports = function(app, client, dbConnection, pool){
     
     app.get(`/${client}/:nameEmpresa`, function(req, res){
-        //con.connect();
         console.log(req.params.nameEmpresa)
         let sql = `Select ClienteEmpresa.nome, ClienteEmpresa.id from ClienteEmpresa, Cliente where ClienteEmpresa.empresa_id = Cliente.id and Cliente.nome = ${req.params.nameEmpresa}`;
         
-        con.query(sql, function(err, result){
-            res.send(result);
-            //con.end();
-            //con.release();
-        });
-        //con.end();
+        pool.getConnection((err, con) => {
+            con.query(sql, function(err, result){
+                res.send(result);
+                con.release();
+            });
+        })
     });   
     
 }

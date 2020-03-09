@@ -1,13 +1,12 @@
-//var dbConnection = require('../../config/dbConnection');
+module.exports = function(app, postTest, dbConnection, pool){
 
-module.exports = function(app, postTest, dbConnection){
-    var con = dbConnection();
-    
-    
     app.post(`/${postTest}`, function(req, res){
         let sql = ` UPDATE OrdemServico SET imagem = '${req.body.image}' WHERE OrdemServico.id = ${req.body.idOs}`;
-        con.query(sql, function(err, result){
-            res.send(result);
-        });
+        pool.getConnection((err, con) => {
+            con.query(sql, function(err, result){
+                res.send(result);
+                con.release();
+            });
+        })
     });
 }
