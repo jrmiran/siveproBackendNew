@@ -2,7 +2,6 @@ var app = require('./config/server');
 var porta = process.env.PORT || 3000;
 var dbConnection = require('./config/dbConnection');
 var pool = require('./config/poolConnection');
-
 require('./app/routes/query')(app, "/query", 
                               "SELECT SQL_CACHE ClienteEmpresa.nome as storeClient, Cliente.nome as clientName, Orcamento.id as budgetId, Orcamento.data as date, Orcamento.valorTotal as value, Orcamento.aprovado as approved FROM Orcamento join Cliente on Cliente.id = Orcamento.clienteJuridico_id or Cliente.id = Orcamento.pessoa_id join ClienteEmpresa on ClienteEmpresa.id = Orcamento.clienteEmpresaa_id ORDER BY Orcamento.id DESC", dbConnection, pool());
 
