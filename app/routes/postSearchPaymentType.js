@@ -1,6 +1,6 @@
-var dbConnection = require('../../config/dbConnection');
+//var dbConnection = require('../../config/dbConnection');
 
-module.exports = function(app, postSearchPaymentType){
+module.exports = function(app, postSearchPaymentType, dbConnection){
     var con = dbConnection();
     app.post(`/${postSearchPaymentType}`, function(req, res){
         let sql = `SELECT * FROM TipoPagamento`;

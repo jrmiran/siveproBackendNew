@@ -1,6 +1,6 @@
-var dbConnection = require('../../config/dbConnection');
+//var dbConnection = require('../../config/dbConnection');
 
-module.exports = function(app, serviceOrderBudget){
+module.exports = function(app, serviceOrderBudget, dbConnection){
     var con = dbConnection();
     
     app.get(`/${serviceOrderBudget}/:soId`, function(req, res){

@@ -1,6 +1,6 @@
-var dbConnection = require('../../config/dbConnection');
+//var dbConnection = require('../../config/dbConnection');
 
-module.exports = function(app, postSearchAllEmployees){
+module.exports = function(app, postSearchAllEmployees, dbConnection){
     var con = dbConnection();
     
     app.post(`/${postSearchAllEmployees}`, function(req, res){

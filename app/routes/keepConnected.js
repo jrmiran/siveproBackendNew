@@ -1,9 +1,11 @@
-var dbConnection = require('../../config/dbConnection');
 
-module.exports = function(app, l, q){
+module.exports = function(app, l, dbConnection){
     var con = dbConnection();
     
-    app.get(l, function(req, res){  
-        setInterval(function () { con.query(q); }, 5000);
+    app.post(`/${l}`, function(req, res){  
+            con.query("SELECT * FROM Pedido", function(err, result){
+                //res.send(result);
+                console.log(result);
+            });
     });
 }

@@ -1,6 +1,6 @@
-var dbConnection = require('../../config/dbConnection');
+//var dbConnection = require('../../config/dbConnection');
 
-module.exports = function(app, postSearchDataFromRequest){
+module.exports = function(app, postSearchDataFromRequest, dbConnection){
     var con = dbConnection();
     app.post(`/${postSearchDataFromRequest}`, function(req, res){
         let sql = `SELECT io.orcamento_id, io.id, io.valorTotal, io.valorComDesconto FROM ItemOrcamento as io WHERE io.orcamento_id IN (SELECT orcamento_id FROM Pedido_orcamentos WHERE pedido_id = ${req.body.id});

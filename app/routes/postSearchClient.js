@@ -1,6 +1,6 @@
-var dbConnection = require('../../config/dbConnection');
+//var dbConnection = require('../../config/dbConnection');
 
-module.exports = function(app, postSearchClient){
+module.exports = function(app, postSearchClient, dbConnection){
     var con = dbConnection();
     app.post(`/${postSearchClient}`, function(req, res){
         let sql = `SELECT * FROM ClienteEmpresa WHERE id = ${req.body.id}`;

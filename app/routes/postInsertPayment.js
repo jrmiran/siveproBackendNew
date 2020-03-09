@@ -1,6 +1,6 @@
-var dbConnection = require('../../config/dbConnection');
+//var dbConnection = require('../../config/dbConnection');
 
-module.exports = function(app, postInsertPayment){
+module.exports = function(app, postInsertPayment, dbConnection){
     var con = dbConnection();
     app.post(`/${postInsertPayment}`, function(req, res){
         console.log(req.body);

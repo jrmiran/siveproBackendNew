@@ -1,6 +1,6 @@
-var dbConnection = require('../../config/dbConnection');
+//var dbConnection = require('../../config/dbConnection');
 
-module.exports = function(app, postServiceOrderByEmployee){
+module.exports = function(app, postServiceOrderByEmployee, dbConnection){
     var con = dbConnection();
     app.post(`/${postServiceOrderByEmployee}`, function(req, res){
         //let sql = `SELECT o.id, o.dataTermino, of.funcionarios, op.porcentagens FROM OrdemServico_funcionarios as of INNER JOIN OrdemServico_porcentagens as op INNER JOIN OrdemServico as o ON of.OrdemServico_id = op.OrdemServico_id WHERE o.id = of.OrdemServico_id AND o.id = op.OrdemServico_id`;

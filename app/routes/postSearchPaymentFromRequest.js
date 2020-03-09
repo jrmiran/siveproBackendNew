@@ -1,6 +1,6 @@
-var dbConnection = require('../../config/dbConnection');
+//var dbConnection = require('../../config/dbConnection');
 
-module.exports = function(app, postSearchPaymentFromRequest){
+module.exports = function(app, postSearchPaymentFromRequest, dbConnection){
     var con = dbConnection();
     app.post(`/${postSearchPaymentFromRequest}`, function(req, res){
         let sql = `SELECT * FROM Pagamento WHERE id IN (SELECT pagamento_id from Pedido_pagamentos WHERE pedido_id = ${req.body.id})`;

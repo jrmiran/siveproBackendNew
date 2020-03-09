@@ -1,6 +1,6 @@
-var dbConnection = require('../../config/dbConnection');
+//var dbConnection = require('../../config/dbConnection');
 
-module.exports = function(app, postSearchAllRequests){
+module.exports = function(app, postSearchAllRequests, dbConnection){
     var con = dbConnection();
     
     app.post(`/${postSearchAllRequests}`, function(req, res){

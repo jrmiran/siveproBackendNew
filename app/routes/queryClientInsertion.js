@@ -1,6 +1,6 @@
-var dbConnection = require('../../config/dbConnection');
+//var dbConnection = require('../../config/dbConnection');
 
-module.exports = function(app, clientInsertion){
+module.exports = function(app, clientInsertion, dbConnection){
     var con = dbConnection();
     
     app.get(`/${clientInsertion}/:clientType/:clientNeighbor/:clientCel1/:clientCel2/:clientCity/:clientComplement/:clientAddress/:clientName/:clientTel1/:clientTel2/:clientCpf/:clientEmail/:clientCnpj`, function(req, res){

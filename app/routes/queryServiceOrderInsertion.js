@@ -1,6 +1,6 @@
-var dbConnection = require('../../config/dbConnection');
+//var dbConnection = require('../../config/dbConnection');
 
-module.exports = function(app, serviceOrderInsertion){
+module.exports = function(app, serviceOrderInsertion, dbConnection){
     var con = dbConnection();
     
     app.get(`/${serviceOrderInsertion}/:client/:detail/:ambient/:item/:store/:measure/:note/:value/:seller/:budgetId/:stone`, function(req, res){

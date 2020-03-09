@@ -1,6 +1,6 @@
-var dbConnection = require('../../config/dbConnection');
+//var dbConnection = require('../../config/dbConnection');
 
-module.exports = function(app, insertImageSO){
+module.exports = function(app, insertImageSO, dbConnection){
     var con = dbConnection();
     
     app.get(`/${insertImageSO}/:idSO/:imageUrl`, function(req, res){

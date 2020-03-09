@@ -1,6 +1,6 @@
-var dbConnection = require('../../config/dbConnection');
+//var dbConnection = require('../../config/dbConnection');
 
-module.exports = function(app, postUpdateRequestStatus){
+module.exports = function(app, postUpdateRequestStatus, dbConnection){
     var con = dbConnection();
 
     app.post(`/${postUpdateRequestStatus}`, function(req, res){

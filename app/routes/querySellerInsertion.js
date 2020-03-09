@@ -1,6 +1,6 @@
-var dbConnection = require('../../config/dbConnection');
+//var dbConnection = require('../../config/dbConnection');
 
-module.exports = function(app, sellerInsertion){
+module.exports = function(app, sellerInsertion, dbConnection){
     var con = dbConnection();
      app.get(`/${sellerInsertion}/:clientCel1/:clientCel2/:clientEmail/:clientName/:clientTel1/:clientTel2/:storeName`, function(req, res){
         let sql = `INSERT INTO Vendedor (celular, celular2, email, nome, telefone, telefone2, empresa_id) VALUES (${req.params.clientCel1}, ${req.params.clientCel2}, ${req.params.clientEmail}, ${req.params.clientName}, ${req.params.clientTel1}, ${req.params.clientTel2},(SELECT id from Cliente where Cliente.nome =  ${req.params.storeName} and Cliente.DTYPE = 'ClienteJuridico'));

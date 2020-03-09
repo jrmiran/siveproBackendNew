@@ -1,7 +1,7 @@
-var dbConnection = require('../../config/dbConnection');
+//var dbConnection = require('../../config/dbConnection');
 
 
-module.exports = function(app, deleteBudgetItem){
+module.exports = function(app, deleteBudgetItem, dbConnection){
     var con = dbConnection();
     
     app.get(`/${deleteBudgetItem}/:itemId`, function(req, res){

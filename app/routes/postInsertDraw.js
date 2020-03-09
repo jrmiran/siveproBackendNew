@@ -1,6 +1,6 @@
-var dbConnection = require('../../config/dbConnection');
+//var dbConnection = require('../../config/dbConnection');
 
-module.exports = function(app, postInsertDraw){
+module.exports = function(app, postInsertDraw, dbConnection){
     var con = dbConnection();
     
     app.post(`/${postInsertDraw}`, function(req, res){

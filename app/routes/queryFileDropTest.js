@@ -1,7 +1,7 @@
-var dbConnection = require('../../config/dbConnection');
+//var dbConnection = require('../../config/dbConnection');
 
 
-module.exports = function(app, fileDropTest){
+module.exports = function(app, fileDropTest, dbConnection){
     var con = dbConnection();
     app.post(`/${fileDropTest}`, function(req, res){
         console.log("Entrou no post!");

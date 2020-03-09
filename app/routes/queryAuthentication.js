@@ -1,7 +1,7 @@
-var dbConnection = require('../../config/dbConnection');
+//var dbConnection = require('../../config/dbConnection');
 
 
-module.exports = function(app, authentication){
+module.exports = function(app, authentication, dbConnection){
     var con = dbConnection();
     
     app.get(`/${authentication}/:user/:password`, function(req, res){
