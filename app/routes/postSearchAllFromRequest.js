@@ -1,5 +1,3 @@
-
-
 module.exports = function(app, postSearchAllFromRequest, dbConnection, pool){
 
     

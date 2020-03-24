@@ -91,8 +91,11 @@ require('./app/routes/postInsertPaymentOnRequest')(app,"postInsertPaymentOnReque
 require('./app/routes/postSearchPaymentFromRequest')(app,"postSearchPaymentFromRequest", dbConnection, pool());
 require('./app/routes/postUpdateRequestStatus')(app,"postUpdateRequestStatus", dbConnection, pool());
 require('./app/routes/keepConnected')(app,"keepConnected", dbConnection, pool());
-
+require('./app/routes/postSearchAllStore')(app,"postSearchAllStore", dbConnection, pool());
+require('./app/routes/postSearchClientAndSellerByStore')(app,"postSearchClientAndSellerByStore", dbConnection, pool());
+require('./app/routes/postSearchAllItems')(app,"postSearchAllItems", dbConnection, pool());
+require('./app/routes/postInsertBudget')(app,"postInsertBudget", dbConnection, pool());
 
 app.listen(porta, function(){
-    console.log("Server ON on port: " + porta);
+    console.log("Server up on port: " + porta);
 });
