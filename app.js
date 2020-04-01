@@ -95,6 +95,10 @@ require('./app/routes/postSearchAllStore')(app,"postSearchAllStore", dbConnectio
 require('./app/routes/postSearchClientAndSellerByStore')(app,"postSearchClientAndSellerByStore", dbConnection, pool());
 require('./app/routes/postSearchAllItems')(app,"postSearchAllItems", dbConnection, pool());
 require('./app/routes/postInsertBudget')(app,"postInsertBudget", dbConnection, pool());
+require('./app/routes/postSearchBudget')(app,"postSearchBudget", dbConnection, pool());
+require('./app/routes/postEditBudget')(app,"postEditBudget", dbConnection, pool());
+require('./app/routes/postEditBudgetStatus')(app,"postEditBudgetStatus", dbConnection, pool());
+require('./app/routes/postSearchServiceOrderByBudget')(app,"postSearchServiceOrderByBudget", dbConnection, pool());
 
 app.listen(porta, function(){
     console.log("Server up on port: " + porta);
