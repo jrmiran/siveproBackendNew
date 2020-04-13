@@ -7,7 +7,7 @@ io.orcamento_id = o.id AND
 os.itemOrcamento_id = io.id AND
 o.clienteJuridico_id = c.id AND
 o.clienteEmpresaa_id = ce.id
-WHERE o.id = ${req.body.budgetId} AND os.id NOT IN (SELECT id FROM OrdemDeServicoExcluida)`;
+WHERE os.id NOT IN (SELECT id FROM OrdemDeServicoExcluida)`;
         pool.getConnection((err, con) => {
             con.query(sql, function(err, result){
                 res.send(result);

@@ -36,15 +36,35 @@ module.exports = function(app, postEditBudget, dbConnection, pool){
         var updateItems = function(){
             var query = "";
             req.body.itemsBudget.forEach((data, index)=>{
-                query = query + `UPDATE ItemOrcamento SET quantidade=${data.qtd},codigo=${data.cod},item='${data.item}',detalhe='${data.detail}',medida='${data.measure}',comodo='${data.ambient}',necessario='${data.necessary}',valorUnitario=${data.unitValue},valorTotal=${data.totalValue},desconto=${data.discount},valorComDesconto=${data.discountValue},numero=${data.number} WHERE id=${req.body.budget.id};`;
+                query = query + `UPDATE ItemOrcamento SET quantidade=${data.qtd},codigo=${data.cod},item='${data.item}',detalhe='${data.detail}',medida='${data.measure}',comodo='${data.ambient}',necessario='${data.necessary}',valorUnitario=${data.unitValue},valorTotal=${data.totalValue},desconto=${data.discount},valorComDesconto=${data.discountValue},numero=${data.number} WHERE id=${data.id};`;
             });
             return query;
+        }
+        
+        var serviceOrdersRemoved = function(){
+            var query = "";
+            if(req.body.serviceOrdersToRemove.length > 0){
+                req.body.serviceOrdersToRemove.forEach((data, index) =>{
+                    query = query + `(${data})`;
+                    if(index < req.body.serviceOrdersToRemove.length - 1){
+                        query = query + ',';
+                    }
+                })
+                return `INSERT INTO OrdemDeServicoExcluida (id) VALUES ${query};
+                        INSERT INTO ExecucaoOrdemServicoExcluida (id) 
+                        (SELECT id FROM ExecucaoOrdemServico WHERE ExecucaoOrdemServico.ordemDeServico_id IN 
+                        (SELECT id FROM OrdemDeServicoExcluida WHERE OrdemDeServicoExcluida.id IN (SELECT id FROM OrdemDeServico WHERE OrdemDeServico.orcamento_id = ${req.body.budget.id})));`
+            }else{
+                return "";
+            }
+            
         }
         
         let sql = `UPDATE Orcamento SET aprovado=${req.body.budget.approved},desconto=${req.body.budget.discount},observacao='${req.body.budget.note}',retificado=${req.body.budget.retificated},valorTotal=${req.body.budget.totalValue},poload=${req.body.budget.poloAd} WHERE id = ${req.body.budget.id};
         ${deleteItems()}
         ${insertItems()}
         ${updateItems()}`;
+        
         
         pool.getConnection((err, con) => {
             con.query(sql, function(err, result){
