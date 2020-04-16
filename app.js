@@ -103,6 +103,7 @@ require('./app/routes/postInsertServiceOrder')(app,"postInsertServiceOrder", dbC
 require('./app/routes/postSearchAllServiceOrders')(app,"postSearchAllServiceOrders", dbConnection, pool());
 require('./app/routes/postInsertExecutionServiceOrder')(app,"postInsertExecutionServiceOrder", dbConnection, pool());
 require('./app/routes/postSearchAllExecutionServiceOrder')(app,"postSearchAllExecutionServiceOrder", dbConnection, pool());
+require('./app/routes/postUpdateProjectStatus')(app,"postUpdateProjectStatus", dbConnection, pool());
 
 app.listen(porta, function(){
     console.log("Server up on port: " + porta);
