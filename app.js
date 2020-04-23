@@ -3,7 +3,7 @@ var porta = process.env.PORT || 3000;
 var dbConnection = require('./config/dbConnection');
 var pool = require('./config/poolConnection');
 require('./app/routes/query')(app, "/query", 
-                              "SELECT SQL_CACHE ClienteEmpresa.nome as storeClient, Cliente.nome as clientName, Orcamento.id as budgetId, Orcamento.data as date, Orcamento.valorTotal as value, Orcamento.aprovado as approved FROM Orcamento join Cliente on Cliente.id = Orcamento.clienteJuridico_id or Cliente.id = Orcamento.pessoa_id join ClienteEmpresa on ClienteEmpresa.id = Orcamento.clienteEmpresaa_id ORDER BY Orcamento.id DESC", dbConnection, pool());
+                              "SELECT SQL_CACHE ClienteEmpresa.nome as storeClient, Cliente.nome as clientName, Orcamento.id as budgetId, Orcamento.data as date, Orcamento.valorTotal as value, Orcamento.aprovado as approved, Orcamento.status as status FROM Orcamento join Cliente on Cliente.id = Orcamento.clienteJuridico_id or Cliente.id = Orcamento.pessoa_id join ClienteEmpresa on ClienteEmpresa.id = Orcamento.clienteEmpresaa_id ORDER BY Orcamento.id DESC", dbConnection, pool());
 
 require('./app/routes/query')(app, "/querytres",
                               "SELECT SQL_CACHE * FROM Usuario", dbConnection, pool());
@@ -104,6 +104,8 @@ require('./app/routes/postSearchAllServiceOrders')(app,"postSearchAllServiceOrde
 require('./app/routes/postInsertExecutionServiceOrder')(app,"postInsertExecutionServiceOrder", dbConnection, pool());
 require('./app/routes/postSearchAllExecutionServiceOrder')(app,"postSearchAllExecutionServiceOrder", dbConnection, pool());
 require('./app/routes/postUpdateProjectStatus')(app,"postUpdateProjectStatus", dbConnection, pool());
+require('./app/routes/postSearchEmployees')(app,"postSearchEmployees", dbConnection, pool());
+require('./app/routes/postUpdateTotalValueBudget')(app,"postUpdateTotalValueBudget", dbConnection, pool());
 
 app.listen(porta, function(){
     console.log("Server up on port: " + porta);

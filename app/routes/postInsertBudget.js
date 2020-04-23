@@ -13,8 +13,7 @@ module.exports = function(app, postInsertBudget, dbConnection, pool){
             });
             return query;
         }
-        
-        let sql = ` INSERT INTO Orcamento(aprovado, caminho, data, desconto, observacao, retificado, tipoCliente, valorTotal, clienteEmpresaa_id, clienteJuridico_id, vendedor_id, poload) VALUES (${req.body.budget.approved},'','${req.body.budget.date}',${req.body.budget.discount},'${req.body.budget.note}',${req.body.budget.retificated},'Empresa', ${req.body.budget.totalValue},${req.body.budget.clientId},${req.body.budget.storeId},${req.body.budget.sellerId},${req.body.budget.poloAd});
+        let sql = ` INSERT INTO Orcamento(aprovado, caminho, data, desconto, observacao, retificado, tipoCliente, valorTotal, clienteEmpresaa_id, clienteJuridico_id, vendedor_id, poload, status) VALUES (${req.body.budget.approved},'','${req.body.budget.date}',${req.body.budget.discount},'${req.body.budget.note}',${req.body.budget.retificated},'Empresa', ${req.body.budget.totalValue},${req.body.budget.clientId},${req.body.budget.storeId},${req.body.budget.sellerId},${req.body.budget.poloAd}, '${req.body.budget.status}');
                     INSERT INTO ItemOrcamento(orcamento_id, quantidade, codigo, item, detalhe, medida, comodo, necessario, valorUnitario, valorTotal, desconto, valorComDesconto, numero) VALUES ${queryItems()}`;
         pool.getConnection((err, con) => {
             con.query(sql, function(err, result){
