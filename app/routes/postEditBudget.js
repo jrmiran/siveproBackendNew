@@ -60,7 +60,7 @@ module.exports = function(app, postEditBudget, dbConnection, pool){
             
         }
         
-        let sql = `UPDATE Orcamento SET aprovado=${req.body.budget.approved},desconto=${req.body.budget.discount},observacao='${req.body.budget.note}',retificado=${req.body.budget.retificated},valorTotal=${req.body.budget.totalValue},poload=${req.body.budget.poloAd},status='${req.body.budget.status}' WHERE id = ${req.body.budget.id};
+        let sql = `UPDATE Orcamento SET aprovado=${req.body.budget.approved},desconto=${req.body.budget.discount},observacao='${req.body.budget.note}',retificado=${req.body.budget.retificated},valorTotal=${req.body.budget.totalValue},poload=${req.body.budget.poloAd},status='${req.body.budget.status}', frete='${req.body.budget.freightValue}' WHERE id = ${req.body.budget.id};
         ${deleteItems()}
         ${insertItems()}
         ${updateItems()}`;
