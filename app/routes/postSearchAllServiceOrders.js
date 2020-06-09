@@ -7,9 +7,28 @@ io.orcamento_id = o.id AND
 os.itemOrcamento_id = io.id AND
 o.clienteJuridico_id = c.id AND
 o.clienteEmpresaa_id = ce.id
-WHERE os.id NOT IN (SELECT id FROM OrdemDeServicoExcluida)`;
+WHERE os.id NOT IN (SELECT id FROM OrdemDeServicoExcluida);
+SELECT eos.id, eos.ordemDeServico_id, eos.dataInicio, eos.dataTermino, eos.empreita, eos.valorEmpreita, eos.pedra, eos.valorPedra, eos.dataPagamentoEmpreita, eos.porcentagem, eos.funcionario_id, f.nome FROM ExecucaoOrdemServico as eos JOIN Funcionario as f ON f.id = eos.funcionario_id;`;
         pool.getConnection((err, con) => {
             con.query(sql, function(err, result){
+                var responseExecution = [];
+                var responseNoExecution = [];
+                result[0].forEach((r)=>{
+                    var aux = result[1].filter((v)=>{
+                        return v['ordemDeServico_id'] == r['id']
+                    });
+                    //console.log(aux);
+                    if(aux.length > 0){
+                        r['funcionarios'] = '';
+                        aux.forEach((a)=>{
+                            r['funcionarios'] = r['funcionarios'] + ' ' + a['nome'];
+                        })
+                        r['executado'] = true;
+                    } else{
+                        r['funcionarios'] = '';
+                        r['executado'] = false;
+                    }
+                })
                 res.send(result);
                 con.release();
             });
