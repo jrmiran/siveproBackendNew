@@ -22,12 +22,12 @@ module.exports = function(app, postEditBudget, dbConnection, pool){
             if(req.body.newItemsBudget.length > 0){
                 var query = "";
             req.body.newItemsBudget.forEach((data, index)=>{
-                query = query + `(${req.body.budget.id}, ${data.qtd}, ${data.cod}, '${data.item}', '${data.detail}', '${data.measure}', '${data.ambient}', '${data.necessary}', ${data.unitValue}, ${data.totalValue}, ${data.discount}, ${data.discountValue}, ${data.number})`;
+                query = query + `(${req.body.budget.id}, ${data.qtd}, ${data.cod}, '${data.item}', '${data.detail}', '${data.measure}', '${data.ambient}', '${data.necessary}', ${data.unitValue}, ${data.totalValue}, ${data.discount}, ${data.discountValue}, ${data.number}, 1)`;
                 if(req.body.newItemsBudget.length != index+1){
                     query = query + ",";
                 }
             });
-            return `INSERT INTO ItemOrcamento(orcamento_id, quantidade, codigo, item, detalhe, medida, comodo, necessario, valorUnitario, valorTotal, desconto, valorComDesconto, numero) VALUES ${query};`
+            return `INSERT INTO ItemOrcamento(orcamento_id, quantidade, codigo, item, detalhe, medida, comodo, necessario, valorUnitario, valorTotal, desconto, valorComDesconto, numero, material_id) VALUES ${query};`
             } else{
                 return "";
             }
