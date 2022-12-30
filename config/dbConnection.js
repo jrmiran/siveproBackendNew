@@ -7,7 +7,7 @@ module.exports = function(){
         host: "br954.hostgator.com.br",
         user: "belart72_belartte",
         port: 2083,
-        password: "Mdcjjh13!@",  
+        password: "Mdcjjh13!",  
         database: "belart72_sivepro",
         multipleStatements: true
     });
