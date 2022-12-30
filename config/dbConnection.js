@@ -8,7 +8,7 @@ module.exports = function(){
         user: "belart72_belartte",
         port: 2083,
         password: "Mdcjjh13!@",  
-        database: "belart72_belartte",
+        database: "belart72_sivepro",
         multipleStatements: true
     });
     
